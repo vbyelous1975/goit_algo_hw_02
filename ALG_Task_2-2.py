@@ -1,11 +1,14 @@
-def factorial(n):
-    print("Виклик функції factorial з n = ", n)
-    if n == 1:
-        print("Базовий випадок, n = 1, повернення 1")
-        return 1
-    else:
-        result = n * factorial(n-1)
-        print("Повернення результату для n = ", n, ": ", result)
-        return result
+from collections import deque
 
-print(factorial(5))
+
+def if_polindrome(input_string):
+    input_string = input_string.lower().replace(" ","")
+    d = deque(input_string)
+
+    while len(d) > 1:
+        if d.pop() != d.popleft():
+            print("This is not polindrome")
+            return False
+        print("This is polindrome")
+        return True
+if_polindrome("asdsA")
